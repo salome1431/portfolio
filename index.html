@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salome M - Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor glow-blob"></div>
+
+  <!-- Background Animated Particles Container -->
+  <canvas id="particle-canvas"></canvas>
+  <div class="ambient-light light-1"></div>
+  <div class="ambient-light light-2"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar glassmorphism">
+    <div class="nav-container">
+      <a href="#hero" class="logo">S<span class="highlight">.</span>M</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Hero Section -->
+    <section id="hero" class="full-height flex-center">
+      <div class="hero-content fade-in-up">
+        <p class="subtitle floating delay-1">CSE Student | Data Analyst | Aspiring Data Engineer</p>
+        <h1 class="title floating">Hi, I'm <span class="gradient-text">Salome M</span></h1>
+        <p class="description fade-in-up delay-2">Unlocking insights through data analysis and building robust
+          pipelines.</p>
+        <div class="hero-actions fade-in-up delay-3">
+          <a href="#projects" class="btn primary-btn float-hover">Explore My Work <i class="fa-solid fa-rocket"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container reveal">
+        <h2 class="section-title">About <span class="highlight">Me</span></h2>
+        <div class="about-grid">
+          <div class="about-text glass-card float-hover">
+            <p>I am a passionate Computer Science Engineering student specializing in Data Analysis, with a strong
+              aspiration to become a Data Engineer.</p>
+            <p>I love discovering the stories hidden within complex datasets and building systems to process them. I
+              specialize in utilizing Python, SQL, and data visualization tools to solve real-world problems and drive
+              actionable insights.</p>
+            <p>When I'm not writing queries or building pipelines, I enjoy exploring new technologies and constantly
+              expanding my engineering toolkit.</p>
+          </div>
+          <div class="about-stats glass-card float-hover delay-1">
+            <div class="stat-item">
+              <i class="fa-solid fa-code"></i>
+              <h3>Coding</h3>
+              <p>Clean, efficient, &amp; robust.</p>
+            </div>
+            <div class="stat-item">
+              <i class="fa-solid fa-chart-pie"></i>
+              <h3>Analysis</h3>
+              <p>Transforming raw data into insights.</p>
+            </div>
+            <div class="stat-item">
+              <i class="fa-solid fa-database"></i>
+              <h3>Engineering</h3>
+              <p>Building scalable data pipelines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="container reveal">
+        <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+        <div class="skills-container">
+
+          <div class="skill-category glass-card float-hover">
+            <h3><i class="fa-solid fa-terminal"></i> Programming</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">C++</span>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card float-hover delay-1">
+            <h3><i class="fa-solid fa-server"></i> Data Tools</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">NumPy</span>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card float-hover delay-2">
+            <h3><i class="fa-solid fa-globe"></i> Web Tech</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">Git/GitHub</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container reveal">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;">
+          <h2 class="section-title" style="margin-bottom: 0;">Featured <span class="highlight">Projects</span></h2>
+          <button id="open-project-modal" class="btn primary-btn float-hover"><i class="fa-solid fa-plus"></i> Add
+            Project</button>
+        </div>
+        <div class="projects-grid" id="projects-grid">
+          <!-- Projects will be rendered dynamically by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section">
+      <div class="container reveal">
+        <h2 class="section-title">My <span class="highlight">Resume</span></h2>
+        <div class="resume-container glass-card float-hover">
+          <p>Drop your resume for review, or download my latest CV.</p>
+
+          <div class="upload-zone" id="drop-zone">
+            <i class="fa-regular fa-file-pdf display-icon"></i>
+            <p>Drag & Drop your precise file, or <span class="highlight">Browse</span></p>
+            <p class="sub-text">PDF format only (Max 5MB)</p>
+            <input type="file" id="resume-upload" accept=".pdf" hidden>
+
+            <div id="file-info" class="file-info hidden">
+              <span id="file-name">filename.pdf</span>
+              <button id="remove-file" class="btn-icon"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+          </div>
+
+          <div class="resume-actions">
+            <button id="view-simulate-btn" class="btn primary-btn disabled" disabled>View Uploaded Resume <i
+                class="fa-solid fa-eye"></i></button>
+            <a href="#" class="btn secondary-btn">Download My Resumé <i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container reveal">
+        <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+        <div class="contact-grid">
+
+          <div class="contact-info glass-card float-hover">
+            <h3>Let's Connect</h3>
+            <p>I am open to new opportunities, data projects, and exciting collaborations in the data engineering space!
+            </p>
+            <ul class="contact-links">
+              <li>
+                <a href="mailto:salomedavid085@gmail.com" class="contact-link">
+                  <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
+                  <span>salomedavid085@gmail.com</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/salome-david-3285993a3/" target="_blank" class="contact-link">
+                  <div class="icon-box"><i class="fa-brands fa-linkedin-in"></i></div>
+                  <span>https://www.linkedin.com/in/salome-david-3285993a3/</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/salome1431" target="_blank" class="contact-link">
+                  <div class="icon-box"><i class="fa-brands fa-github"></i></div>
+                  <span>https://github.com/salome1431</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <form class="contact-form glass-card float-hover delay-1" id="contactForm">
+            <div class="input-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" required placeholder="John Doe" class="glass-input">
+            </div>
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required placeholder="john@example.com" class="glass-input">
+            </div>
+            <div class="input-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" required placeholder="Hello Salome! I'd like to talk about..."
+                class="glass-input"></textarea>
+            </div>
+            <button type="submit" class="btn primary-btn float-hover">Send Message <i
+                class="fa-solid fa-paper-plane"></i></button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Salome M. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Add Project Modal -->
+  <div class="project-modal-overlay" id="add-project-modal">
+    <div class="glass-card project-modal float-hover">
+      <button class="close-modal-btn" id="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Add New <span class="highlight">Project</span></h3>
+
+      <form id="new-project-form" class="contact-form">
+        <div class="input-group">
+          <label for="proj-title">Project Title</label>
+          <input type="text" id="proj-title" required placeholder="e.g. Flight Delay Predictor" class="glass-input">
+        </div>
+        <div class="input-group">
+          <label for="proj-desc">Description</label>
+          <textarea id="proj-desc" rows="3" required placeholder="Briefly describe what this project does..."
+            class="glass-input"></textarea>
+        </div>
+        <div class="input-group">
+          <label for="proj-tech">Technologies Used (comma separated)</label>
+          <input type="text" id="proj-tech" required placeholder="Python, SQL, AWS" class="glass-input">
+        </div>
+        <button type="submit" class="btn primary-btn float-hover" style="margin-top: 1rem;">Save Project <i
+            class="fa-solid fa-floppy-disk"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
