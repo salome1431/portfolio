@@ -265,16 +265,45 @@ if (contactForm) {
         btn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
         btn.classList.add('disabled');
 
-        setTimeout(() => {
-            alert("Thank you for your message! Salome will get back to you shortly.");
-            contactForm.reset();
-            btn.innerHTML = 'Message Sent <i class="fa-solid fa-check"></i>';
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
 
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.classList.remove('disabled');
-            }, 3000);
-        }, 1500);
+        fetch("https://formsubmit.co/ajax/salomedavid085@gmail.com", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                message: message
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Thank you for your message! Salome will get back to you shortly.\n\n(Important: If this is your very first time submitting this form, FormSubmit will send an activation email to salomedavid085@gmail.com! Please check your inbox and click 'Activate' for future messages to work!)");
+                    contactForm.reset();
+                    btn.innerHTML = 'Message Sent <i class="fa-solid fa-check"></i>';
+                } else {
+                    alert("Oops! There was a problem sending your message.");
+                    btn.innerHTML = 'Failed <i class="fa-solid fa-xmark"></i>';
+                }
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('disabled');
+                }, 3000);
+            })
+            .catch(error => {
+                alert("Oops! There was an error sending your message.");
+                btn.innerHTML = 'Failed <i class="fa-solid fa-xmark"></i>';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('disabled');
+                }, 3000);
+            });
     });
 }
 
